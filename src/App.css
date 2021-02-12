@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+body{
+  font-family: 'Raleway', sans-serif;
+background-image: linear-gradient(to right, #343737, #3a3d3e, #414344, #48494b, #4f4f51);
+}
+h3{
+  font-family: 'Dancing Script', cursive;
+  
+}
+.search-bar{
+  width:400px;
+}
+
+#cards{
+  margin-top: 6%;
+  margin-left: 29%;
+  display: "flex";
+  justify-content: "space-between";
+  flex-wrap: "wrap";
+}
+
+#card:hover{
+    cursor: pointer;
+    transform: scale(1.02,1.02);
+    transition: transform .3s ease; 
+}
+.ctext{
+  color : white;
+  background-color:"#212529";
+  width: 300px;
+
+}
+/*side*/
+.sidebar {
+    background: lightgrey;
+    height:100%;
+    position: fixed;
+    z-index: 1;
+    overflow-y: auto;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+.cbody{
+background-color: "black";
+}
