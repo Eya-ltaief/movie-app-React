@@ -1,6 +1,6 @@
 import React from "react";
 import MovieCard from "./MovieCard";
-import StarRatingComponent from 'react-star-rating-component';
+
 
 function MovieList({ movies }) {
     return (

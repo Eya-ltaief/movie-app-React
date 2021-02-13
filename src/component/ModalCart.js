@@ -5,10 +5,10 @@ import ReactDOM from 'react-dom';
 export default function ModalCart(AddMovie) { 
   const styles = {marginLeft:"50%", marginTop:"2%", marginBottom:"2%"
 }
-const [newMovie, setNewMovie] = useState({
+const [newInput, setNewInput] = useState({
     id: Math.random(),
     image: "",
-    rating: 1,
+    rating: "",
     name: "",
     date: "",
     type: "",
@@ -16,7 +16,8 @@ const [newMovie, setNewMovie] = useState({
   });
   const [show, setShow] = useState(false);
   const handleChange = (e) => {
-    setNewMovie({ ...newMovie, [e.target.name]: e.target.value });
+    setNewInput({ ...newInput, [e.target.name]: e.target.value });
+    
   };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -55,11 +56,12 @@ const [newMovie, setNewMovie] = useState({
               <input type="text" name="rating" onChange={handleChange}></input>
             </Form.Group>
             <Button variant="primary" type="submit" style={{marginLeft:"42%"}} onClick={(e) => {
-              AddMovie(newMovie);
-               setNewMovie({
+              AddMovie(newInput);
+              e.preventDefault();
+               setNewInput({
                 id: Math.random(),
                 image: "",
-                rating: 1,
+                rating: "",
                 name: "",
                 date: "",
                 type: "",

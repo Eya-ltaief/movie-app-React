@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 const [movies,setMovies] = useState(moviesData);
 const AddMovie = (newMovie)=> {
- setMovies([...movies, newMovie]);
+setMovies([...movies, newMovie]);
 };
   return (
     <div className="App">

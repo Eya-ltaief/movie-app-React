@@ -1,12 +1,12 @@
 import React from "react";
 import {Card,Button,Container,Row,Col} from "react-bootstrap" ;
-import StarRatingComponent from 'react-star-rating-component';
+
 
 export default function MovieCard({movie}){
     
     return(
         <>
-        <Container  id="cards">
+        <Container id="cards">
             <Row >
                 <Col>
                     <Card style={{ width: '50rem',border: "1px solid #212529",height:"400px"}} id="card">
