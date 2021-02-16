@@ -45,3 +45,13 @@ h3{
 .cbody{
 background-color: "black";
 }
+.form-style input{
+  width: 300px;
+  align-items: center;
+  
+}
+.form-style{
+  margin-left: 20%;
+  font-size: 20px;
+  font-weight: 500;
+}

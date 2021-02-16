@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 
-function MovieList({ movies }) {
+function MovieList({ movies,searchText,searchRate}) {
     return (
     <div
       style={{
@@ -10,9 +10,13 @@ function MovieList({ movies }) {
         justifyContent: "space-between",
         flexWrap: "wrap",
       }}>
-      {movies.map((el) => (
-          <MovieCard key={el.id} movie={el} />
-        ))}
+      {movies.filter((movie) =>
+      movie.name.toLowerCase().includes(searchText.toLowerCase())
+      ).filter((movie) =>
+        movie.rating >= searchRate
+      ).map((el) => (
+          <MovieCard key={el.id} movie={el}
+          />))}
     </div>
   );
 };

@@ -1,27 +1,35 @@
+//importing react and hooks
 import React , {useState} from "react";
-import './App.css';
-import NavigationBar from './component/NavigationBar';
+//importing our components
 import SideBar from "./component/SideBar";
-// import ModalCart from "./component/ModalCart";
 import Caroussel from "./component/Caroussel";
-import { moviesData } from "./component/data";
+import NavigationBar from './component/NavigationBar';
+//importing movies components
 import MovieList from "./component/MovieList";
 import ModalCart from "./component/ModalCart";
+//importing movies data
+import { moviesData } from "./component/data";
+//importing css and bootstrap
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 function App() {
 const [movies,setMovies] = useState(moviesData);
+const [title, setTitle] = useState("");
+const [rate, setRate] = useState("");
 const AddMovie = (newMovie)=> {
 setMovies([...movies, newMovie]);
 };
+
   return (
     <div className="App">
-      <NavigationBar />
+      <NavigationBar setTitle={setTitle} setRate={setRate}/>
       <SideBar />
       <Caroussel />
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} searchText={title} searchRate={rate}/>
       <ModalCart AddMovie={AddMovie}/>
     </div>
   );
 }
-
 export default App;

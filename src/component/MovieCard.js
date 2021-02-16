@@ -1,6 +1,6 @@
 import React from "react";
 import {Card,Button,Container,Row,Col} from "react-bootstrap" ;
-
+import StarRatingComponent from "react-rating-stars-component";
 
 export default function MovieCard({movie}){
     
@@ -16,6 +16,7 @@ export default function MovieCard({movie}){
                                 <Card.Title>{movie.name}</Card.Title>
                                 <Card.Title><h6>{movie.date}</h6></Card.Title>
                                 <Card.Title><h6>{movie.title}</h6></Card.Title>
+                                <StarRatingComponent value={movie.rating} />
                                 <Card.Text >
                                 {movie.description}
                                 </Card.Text>

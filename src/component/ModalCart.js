@@ -1,19 +1,11 @@
-import React, {useState} from "react";
+import React, {useState} from "react"; 
 import {Button , Modal, Form} from "react-bootstrap";
-import ReactDOM from 'react-dom';
 
-export default function ModalCart(AddMovie) { 
+
+export default function ModalCart({AddMovie}) { 
   const styles = {marginLeft:"50%", marginTop:"2%", marginBottom:"2%"
 }
-const [newInput, setNewInput] = useState({
-    id: Math.random(),
-    image: "",
-    rating: "",
-    name: "",
-    date: "",
-    type: "",
-    description: "",
-  });
+const [newInput, setNewInput] = useState({});
   const [show, setShow] = useState(false);
   const handleChange = (e) => {
     setNewInput({ ...newInput, [e.target.name]: e.target.value });
@@ -30,55 +22,46 @@ const [newInput, setNewInput] = useState({
 
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Add a movie</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form className="form-style">
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Movie Tilte</Form.Label>
+              <br />
               <input type="text" name="name" onChange={handleChange}></input>
             </Form.Group>
-
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>image url</Form.Label>
+              <Form.Label>Image URL</Form.Label>
+              <br />
               <input type="text" name="image" onChange={handleChange}></input>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Date of release</Form.Label>
+              <br />
               <input type="text" name="date" onChange={handleChange}></input>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Type</Form.Label>
+              <br />
               <input type="text" name="type" onChange={handleChange}></input>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Rating</Form.Label>
-              <input type="text" name="rating" onChange={handleChange}></input>
+              <br />
+              <input type="value" name="rating" onChange={handleChange}></input>
             </Form.Group>
-            <Button variant="primary" type="submit" style={{marginLeft:"42%"}} onClick={(e) => {
+            <Button variant="primary" type="submit" style={{marginLeft:"30%"}} onClick={(e) => {
               AddMovie(newInput);
               e.preventDefault();
-               setNewInput({
-                id: Math.random(),
-                image: "",
-                rating: "",
-                name: "",
-                date: "",
-                type: "",
-                description: "",
-              });
+              setNewInput({});
+              handleClose()
             }}>
-              Submit
+              Add movie
             </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
         </Modal.Footer>
       </Modal>
     </div>
